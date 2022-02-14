@@ -1,6 +1,6 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 // chakra
-import { Center, Input, Image, InputGroup, InputLeftElement, Box, FormControl, FormLabel, Text, Radio, Stack, RadioGroup } from '@chakra-ui/react';
+import { Center, Input, Image, InputGroup, InputLeftElement, Box, FormControl, Radio, Stack, RadioGroup } from '@chakra-ui/react';
 //router
 import { Link } from 'react-router-dom';
 // icons
@@ -15,13 +15,8 @@ import { CalcButton } from '../styles/Buttons';
 import health from '../assets/health.png';
 
 function BmiCalculator() {
-  const { setBmi, setName } = useContext(MainContext);
-  const [weight, setWeight] = useState(0);
-  const [height, setHeight] = useState(0);
+  const { setName, setWeight, setHeight, calculate } = useContext(MainContext);
 
-  const calculate = () => {
-    setBmi((weight / (height * height)).toFixed(2));
-  }
 
   return (
     <Center display='flex' alignItems='center'>
@@ -51,11 +46,11 @@ function BmiCalculator() {
           </InputGroup>
           <RadioGroup defaultValue='2' mb='5'>
             <Stack spacing={5} direction='row'>
-              <Radio colorScheme='green' value='1'>
-                He
+              <Radio colorScheme='blue' value='1'>
+                Male
               </Radio>
-              <Radio colorScheme='green' value='2'>
-                She
+              <Radio colorScheme='pink' value='2'>
+                Female
               </Radio>
             </Stack>
           </RadioGroup>
