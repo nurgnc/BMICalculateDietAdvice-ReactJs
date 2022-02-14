@@ -1,16 +1,20 @@
 import { useContext, useState } from 'react';
 // chakra
-import { Input, InputGroup, InputLeftElement, Stack, FormControl, FormLabel, Text } from '@chakra-ui/react'
+import { Center, Input, Image, InputGroup, InputLeftElement, Box, FormControl, FormLabel, Text, Radio, Stack, RadioGroup } from '@chakra-ui/react'
 // icons
 import { BiBody } from 'react-icons/bi'
 import { GiBodyHeight } from 'react-icons/gi'
+import { MdDriveFileRenameOutline } from 'react-icons/md'
 // context
 import { MainContext } from '../context/MainContextProvider';
 // css
 import { CalcButton } from '../styles/Buttons';
+// img
+import health from '../assets/health.png';
 
 function BmiCalculator() {
   const { bmi, setBmi } = useContext(MainContext);
+  const [name, setName] = useState('');
   const [weight, setWeight] = useState(0);
   const [height, setHeight] = useState(0);
   const calculate = () => {
@@ -18,28 +22,46 @@ function BmiCalculator() {
   }
 
   return (
-    <Stack spacing={4}>
-      <FormControl>
-        <FormLabel >Weight:</FormLabel >
-        <InputGroup width='15rem'>
-          <InputLeftElement
-            pointerEvents='none'
-            children={<BiBody color='gray' size={30} />}
-          />
-          <Input type="text" variant="outline" placeholder='weight' onChange={(e) => setWeight(e.target.value)} />
-        </InputGroup>
-        <FormLabel >Height:</FormLabel >
-        <InputGroup width='15rem'>
-          <InputLeftElement
-            pointerEvents='none'
-            children={<GiBodyHeight color='gray' size={30} />}
-          />
-          <Input type="text" variant="outline" placeholder='height' onChange={(e) => setHeight(e.target.value / 100)} />
-        </InputGroup>
-        <CalcButton type='button' onClick={calculate}>Calculate</CalcButton>
-      </FormControl>
-      <Text mb='8px'>{bmi}</Text>
-    </Stack >
+    <Center display='flex' alignItems='center'>
+      <Box p='6' display='flex' alignItems='center' justifyContent="space-between" >
+        <Image boxSize='600px' src={health} alt='Dan Abramov' mr="10" />
+        <FormControl display='flex' flexDirection="column" justifyContent="space-between">
+          <InputGroup width='20rem' mb='5'>
+            <InputLeftElement
+              pointerEvents='none'
+              children={<MdDriveFileRenameOutline color='gray' size={30} />}
+            />
+            <Input type="text" variant="outline" placeholder='Your name...' onChange={(e) => setName(e.target.value)} />
+          </InputGroup>
+          <InputGroup width='20rem' mb='5'>
+            <InputLeftElement
+              pointerEvents='none'
+              children={<BiBody color='gray' size={30} />}
+            />
+            <Input type="text" variant="outline" placeholder='Weight, etc 60 kg' onChange={(e) => setWeight(e.target.value)} />
+          </InputGroup>
+          <InputGroup width='20rem' mb='5'>
+            <InputLeftElement
+              pointerEvents='none'
+              children={<GiBodyHeight color='gray' size={30} />}
+            />
+            <Input type="text" variant="outline" placeholder='Height, etc 160 cm' onChange={(e) => setHeight(e.target.value / 100)} />
+          </InputGroup>
+          <RadioGroup defaultValue='2' mb='5'>
+            <Stack spacing={5} direction='row'>
+              <Radio colorScheme='green' value='1'>
+                He
+              </Radio>
+              <Radio colorScheme='green' value='2'>
+                She
+              </Radio>
+            </Stack>
+          </RadioGroup>
+          <CalcButton type='button' onClick={calculate}>Calculate</CalcButton>
+        </FormControl>
+        <Text mb='8px'>{bmi}</Text>
+      </Box >
+    </Center>
   );
 }
 
