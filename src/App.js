@@ -3,7 +3,7 @@ import { ChakraProvider } from "@chakra-ui/react"
 // router
 import { Routes, Route } from 'react-router-dom';
 // components
-import About from "./components/About";
+import About from "./components/pages/About";
 import BmiCalculator from "./components/BmiCalculator";
 import Nav from "./components/base/Nav";
 import Results from "./components/pages/ResultPage";
