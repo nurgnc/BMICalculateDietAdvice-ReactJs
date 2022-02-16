@@ -42,7 +42,7 @@ function DietList() {
             <InfoText align='center' key={index}>&#128313; {item}</InfoText>
           ))}
         </Box>
-        <Box w='100%' p={4} mx={{ lg: 4 }} my={{ lg: 0, sm: 8, xs: 8, md: 8 }} display='flex' flexDirection="column" alignItems='center' justifyContent="center" borderWidth='1px' borderRadius='lg' overflow='hidden'>
+        <Box w='100%' p={4} mx={{ lg: 4 }} my={{ base: 8, lg: 0, sm: 8, xs: 8, md: 8 }} display='flex' flexDirection="column" alignItems='center' justifyContent="center" borderWidth='1px' borderRadius='lg' overflow='hidden'>
           <Heading size='md' mb={5}>&#127829; Lunch &#127829;</Heading>
           {newLunch?.map((item, index) => (
             <InfoText align='center' key={index}>&#128313; {item}</InfoText>
