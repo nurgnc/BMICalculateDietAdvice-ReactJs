@@ -24,24 +24,24 @@ function BmiCalculator() {
 
   return (
     <Center display='flex' alignItems='center'>
-      <Box p='6' display='flex' alignItems='center' justifyContent="space-between" >
-        <Image boxSize='600px' src={imgPath} alt='' mr="10" />
-        <FormControl display='flex' flexDirection="column" justifyContent="space-between">
-          <InputGroup width='20rem' mb='5'>
+      <Box p='6' width={{ lg: '80%', md: '80%' }} display={{ lg: 'flex' }} alignItems='center' justifyContent="space-between" >
+        <Image height={{ lg: '600px' }} src={imgPath} alt='' />
+        <FormControl display='flex' flexDirection="column" justifyContent="space-between" isRequired size='lg'>
+          <InputGroup mb='5'>
             <InputLeftElement
               pointerEvents='none'
               children={<MdDriveFileRenameOutline color='gray' size={30} />}
             />
             <Input type="text" variant="outline" placeholder='Your name...' onChange={(e) => setName(e.target.value)} />
           </InputGroup>
-          <InputGroup width='20rem' mb='5'>
+          <InputGroup mb='5'>
             <InputLeftElement
               pointerEvents='none'
               children={<BiBody color='gray' size={30} />}
             />
             <Input type="text" variant="outline" placeholder='Weight, etc 60kg' onChange={(e) => setWeight(e.target.value)} />
           </InputGroup>
-          <InputGroup width='20rem' mb='5'>
+          <InputGroup mb='5'>
             <InputLeftElement
               pointerEvents='none'
               children={<GiBodyHeight color='gray' size={30} />}
@@ -58,7 +58,7 @@ function BmiCalculator() {
               </Radio>
             </Stack>
           </RadioGroup>
-          <CalcButton type='button' onClick={calculate}><Link to='/results'>Calculate</Link></CalcButton>
+          <CalcButton type='button' color={value} onClick={calculate}><Link to='/results'>Calculate</Link></CalcButton>
         </FormControl>
       </Box >
     </Center>

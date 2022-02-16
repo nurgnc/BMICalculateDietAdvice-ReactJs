@@ -47,7 +47,7 @@ function Results() {
 
       <Box w='100%' p={4} display='flex' flexDirection="column" alignItems='center' justifyContent="center" >
         <InfoText>Check out the list below for a diet that is right for you. &#128071;</InfoText>
-        <DietButton type="button" onClick={() => setToggle(!toggle)}>Diet List</DietButton>
+        <DietButton type="button" onClick={() => setToggle(!toggle)}>Diet List &#128220;</DietButton>
         {toggle && <DietList />}
       </Box>
     </Container>

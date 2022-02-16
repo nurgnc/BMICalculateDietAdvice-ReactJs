@@ -2,8 +2,8 @@ const bmiResults = [
   {
     bmiType: 'Underweight',
     bmiDesc: 'We recommend working with a dietitian to gain a healthy weight.',
-    bgColor: 'yellow',
-    color: 'darkgreen',
+    bgColor: 'blue',
+    color: 'white',
   },
   {
     bmiType: `You are healthy!`,

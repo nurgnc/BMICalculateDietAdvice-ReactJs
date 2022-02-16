@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 export const CalcButton = styled.button`
-border: 1px solid #82C0BD;
-background-color: #82C0BD;
+border: 1px solid;
+border-color: ${(props) => props.color === '1' ? '#82C0BD' : '#F592A3'};
+background-color: ${(props) => props.color === '1' ? '#82C0BD' : '#F592A3'};
 color: white;
 font-size: 18px;
 font-weight:600;
@@ -12,7 +13,7 @@ margin-top: 10px;
 letter-spacing: 2px;
 box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 &:hover {
-  color: #82C0BD;
+  color: ${(props) => props.color === '1' ? '#82C0BD' : '#F592A3'};
   background-color: white;
 }
 `
@@ -60,4 +61,5 @@ font-size: 16px;
 font-weight:700;
 letter-spacing: 2px;
 margin-top: 15px;
+text-align: ${(props) => props.align};
 `;
