@@ -2,13 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 // chakra
 import { Container } from '@chakra-ui/react';
 import {
-  Table,
-  Thead,
-  Tbody,
-  Tr,
-  Th,
-  Td,
-  TableCaption,
+  Table, Thead, Tbody, Tr, Th, Td, TableCaption,
 } from '@chakra-ui/react'
 // context
 import { MainContext } from '../../context/MainContextProvider';
@@ -16,15 +10,15 @@ import { MainContext } from '../../context/MainContextProvider';
 function Calculations() {
   const { localData } = useContext(MainContext);
   const [userData, setUserData] = useState(localData);
-  console.log(localData)
+  // console.log("userData:::::::", userData)
 
   useEffect(() => {
     setUserData(localData);
   }, [localData])
 
   return (
-    <Container maxW='container.xl'>
-      <Table variant='striped' colorScheme='teal'>
+    <Container maxW='container.xl' my={10}>
+      <Table variant='striped' colorScheme='gray' borderWidth='1px' borderRadius='lg'>
         <TableCaption>Name and BMI information</TableCaption>
         <Thead>
           <Tr>
@@ -35,8 +29,8 @@ function Calculations() {
         <Tbody>
           {userData?.map((item, index) => (
             <Tr key={index}>
-              <Td>{item.name}</Td>
-              <Td>{item.bmi}</Td>
+              <Td>{item?.name}</Td>
+              <Td>{item?.bmi}</Td>
             </Tr>
           ))}
 

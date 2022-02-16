@@ -29,28 +29,28 @@ function DietList() {
     handleDiet();
   }, [bmi])
 
-  const newBreakfast = diet.breakfast.split(",").map((item, index) => `${item}`);
-  const newLunch = diet.lunch.split(",").map((item, index) => `${item}`);
-  const newDinner = diet.dinner.split(",").map((item, index) => `${item}`);
+  const newBreakfast = diet?.breakfast?.split(",").map((item, index) => `${item}`);
+  const newLunch = diet?.lunch?.split(",").map((item, index) => `${item}`);
+  const newDinner = diet?.dinner?.split(",").map((item, index) => `${item}`);
 
   return (
     <Container mt={8} maxW='container.xl'>
       <Box display={{ lg: 'flex' }} alignItems='start' justifyContent="center">
         <Box w='100%' p={4} display='flex' flexDirection="column" alignItems='center' justifyContent="center" borderWidth='1px' borderRadius='lg' overflow='hidden'>
           <Heading size='md' mb={5}>&#127789; Breakfast &#127789;</Heading>
-          {newBreakfast.map((item, index) => (
+          {newBreakfast?.map((item, index) => (
             <InfoText align='center' key={index}>&#128313; {item}</InfoText>
           ))}
         </Box>
         <Box w='100%' p={4} mx={{ lg: 4 }} my={{ lg: 0, sm: 8 }} display='flex' flexDirection="column" alignItems='center' justifyContent="center" borderWidth='1px' borderRadius='lg' overflow='hidden'>
           <Heading size='md' mb={5}>&#127829; Lunch &#127829;</Heading>
-          {newLunch.map((item, index) => (
+          {newLunch?.map((item, index) => (
             <InfoText align='center' key={index}>&#128313; {item}</InfoText>
           ))}
         </Box>
         <Box w='100%' p={4} display='flex' flexDirection="column" alignItems='center' justifyContent="center" borderWidth='1px' borderRadius='lg' overflow='hidden'>
           <Heading size='md' mb={5}> &#127831; Dinner &#127831;</Heading>
-          {newDinner.map((item, index) => (
+          {newDinner?.map((item, index) => (
             <InfoText align='center' key={index}>&#128313; {item}</InfoText>
           ))}
         </Box>

@@ -1,13 +1,16 @@
 import styled from 'styled-components';
+//router
+import { Link } from 'react-router-dom';
 
-export const CalcButton = styled.button`
+export const CalcButton = styled(Link)`
 border: 1px solid;
 border-color: ${(props) => props.color === '1' ? '#82C0BD' : '#F592A3'};
 background-color: ${(props) => props.color === '1' ? '#82C0BD' : '#F592A3'};
 color: white;
 font-size: 18px;
 font-weight:600;
-padding: 5px 10px;
+text-align: center;
+padding: 8px 10px;
 border-radius: 0.375rem;
 margin-top: 10px;
 letter-spacing: 2px;

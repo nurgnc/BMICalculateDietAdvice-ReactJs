@@ -1,8 +1,7 @@
 import { useContext, useState } from 'react';
 // chakra
 import { Center, Input, Image, InputGroup, InputLeftElement, Box, FormControl, Radio, Stack, RadioGroup } from '@chakra-ui/react';
-//router
-import { Link } from 'react-router-dom';
+
 // icons
 import { BiBody } from 'react-icons/bi'
 import { GiBodyHeight } from 'react-icons/gi'
@@ -58,7 +57,7 @@ function BmiCalculator() {
               </Radio>
             </Stack>
           </RadioGroup>
-          <CalcButton type='button' color={value} onClick={calculate}><Link to='/results'>Calculate</Link></CalcButton>
+          <CalcButton type='button' color={value} to='/results' onClick={calculate}>Calculate</CalcButton>
         </FormControl>
       </Box >
     </Center>

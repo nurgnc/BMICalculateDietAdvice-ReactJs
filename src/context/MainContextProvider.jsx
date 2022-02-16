@@ -4,44 +4,38 @@ export const MainContext = createContext();
 
 export default function MainContextProvider({ children }) {
   const [bmi, setBmi] = useState();
-  const [bmiType, setBmiType] = useState('');
-  const [bmiColor, setBmiColor] = useState('black');
-  const [bmiDesc, setBmiDesc] = useState('');
   const [name, setName] = useState('');
   const [weight, setWeight] = useState(0);
   const [height, setHeight] = useState(0);
-  let localData = [{
-    name: name,
-    bmi: bmi,
-  }];
+  const [localData, setLocalData] = useState([])
 
-  const calculate = () => {
-    setBmi((weight / (height * height)).toFixed(2));
+  const handleStorage = () => {
+    JSON.parse(localStorage.getItem('userData'));
+    localStorage.setItem('localData', JSON.stringify([...localData]));
   }
 
-  JSON.parse(localStorage.getItem('userData', localData));
-  localData.push({
-    name: name,
-    bmi: bmi,
-  })
   useEffect(() => {
-    localStorage.setItem('localData', JSON.stringify(localData));
+    handleStorage();
   }, [])
+
+  const calculate = () => {
+    let bmiValue = (weight / (height * height)).toFixed(2);
+    setBmi(bmiValue);
+    localData.push({
+      name: name,
+      bmi: bmiValue,
+    })
+    setLocalData(localData)
+  }
 
   const value = {
     bmi,
-    setBmi,
-    bmiType,
-    setBmiType,
-    bmiDesc,
-    bmiColor,
     name,
     setName,
-    weight,
     setWeight,
-    height,
     setHeight,
     calculate,
+    localData,
   };
 
   return <MainContext.Provider value={value}>{children}</MainContext.Provider>;
