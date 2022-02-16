@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 // chakra
 import { Center, Input, Image, InputGroup, InputLeftElement, Box, FormControl, Radio, Stack, RadioGroup } from '@chakra-ui/react';
 //router
@@ -15,8 +15,7 @@ import { CalcButton } from '../styles/Buttons';
 import health from '../assets/health.png';
 
 function BmiCalculator() {
-  const { setName, setWeight, setHeight, calculate } = useContext(MainContext);
-
+  const { height, weight, name, setName, setWeight, setHeight, calculate } = useContext(MainContext);
 
   return (
     <Center display='flex' alignItems='center'>

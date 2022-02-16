@@ -7,6 +7,7 @@ function Nav() {
       <Container maxW='container.xl' display='flex' justifyContent={"flex-end"}>
         <Link to="/"><Text fontSize='lg' color='white' as='ins'>BMI Calculate</Text></Link>
         <Link to="/about"><Text mx='6' fontSize='lg' color='white' as='ins'>What's the BMI?</Text></Link>
+        <Link to="/calculations"><Text fontSize='lg' color='white' as='ins'>Calculations</Text></Link>
       </Container>
     </HStack >
   )

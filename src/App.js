@@ -6,6 +6,7 @@ import { Routes, Route } from 'react-router-dom';
 import About from "./components/pages/About";
 import BmiCalculator from "./components/BmiCalculator";
 import Nav from "./components/base/Nav";
+import Calculations from "./components/pages/Calculations";
 import Results from "./components/pages/ResultPage";
 // context
 import MainContextProvider from "./context/MainContextProvider";
@@ -19,6 +20,7 @@ function App() {
         <Routes>
           <Route path='/about' element={<About />} />
           <Route path='/' element={<BmiCalculator />} />
+          <Route path='/calculations' element={<Calculations />} />
           <Route path='/results' element={<Results />} />
         </Routes>
       </ChakraProvider>
