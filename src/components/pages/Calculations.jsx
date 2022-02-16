@@ -6,6 +6,8 @@ import {
 } from '@chakra-ui/react'
 // context
 import { MainContext } from '../../context/MainContextProvider';
+// css
+import { InfoText } from '../../styles/Buttons'
 
 function Calculations() {
   const { localData } = useContext(MainContext);
@@ -15,6 +17,8 @@ function Calculations() {
   useEffect(() => {
     setUserData(localData);
   }, [localData])
+
+
 
   return (
     <Container maxW='container.xl' my={10}>
@@ -27,12 +31,14 @@ function Calculations() {
           </Tr>
         </Thead>
         <Tbody>
-          {userData?.map((item, index) => (
-            <Tr key={index}>
-              <Td>{item?.name}</Td>
-              <Td>{item?.bmi}</Td>
-            </Tr>
-          ))}
+          {(Array.isArray(userData) && !userData.length) ?
+            <Tr><Td>No one yet...</Td><Td></Td></Tr> :
+            userData?.map((item, index) => (
+              <Tr key={index}>
+                <Td>{item?.name}</Td>
+                <Td>{item?.bmi}</Td>
+              </Tr>
+            ))}
 
         </Tbody>
       </Table>
