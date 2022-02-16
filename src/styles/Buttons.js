@@ -45,3 +45,19 @@ border-radius: 0.375rem;
 letter-spacing: 2px;
 box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 `
+
+export const BmiDesc = styled.p`
+color: midnightblue;
+font-size: 18px;
+font-weight:700;
+letter-spacing: 2px;
+margin-top: 15px;
+`;
+
+export const InfoText = styled.p`
+color: gray;
+font-size: 16px;
+font-weight:700;
+letter-spacing: 2px;
+margin-top: 15px;
+`;

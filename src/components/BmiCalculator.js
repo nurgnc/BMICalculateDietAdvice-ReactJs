@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useState } from 'react';
 // chakra
 import { Center, Input, Image, InputGroup, InputLeftElement, Box, FormControl, Radio, Stack, RadioGroup } from '@chakra-ui/react';
 //router
@@ -12,15 +12,20 @@ import { MainContext } from '../context/MainContextProvider';
 // css
 import { CalcButton } from '../styles/Buttons';
 // img
-import health from '../assets/health.png';
+import male from '../assets/male.png';
+import female from '../assets/female.png';
+
 
 function BmiCalculator() {
-  const { height, weight, name, setName, setWeight, setHeight, calculate } = useContext(MainContext);
+  const { setName, setWeight, setHeight, calculate } = useContext(MainContext);
+  const [value, setValue] = useState('1');
+
+  const imgPath = value === '1' ? male : female;
 
   return (
     <Center display='flex' alignItems='center'>
       <Box p='6' display='flex' alignItems='center' justifyContent="space-between" >
-        <Image boxSize='600px' src={health} alt='' mr="10" />
+        <Image boxSize='600px' src={imgPath} alt='' mr="10" />
         <FormControl display='flex' flexDirection="column" justifyContent="space-between">
           <InputGroup width='20rem' mb='5'>
             <InputLeftElement
@@ -43,12 +48,12 @@ function BmiCalculator() {
             />
             <Input type="text" variant="outline" placeholder='Height, etc 160cm' onChange={(e) => setHeight(e.target.value / 100)} />
           </InputGroup>
-          <RadioGroup defaultValue='2' mb='5'>
+          <RadioGroup defaultValue='2' mb='5' value={value}>
             <Stack spacing={5} direction='row'>
-              <Radio colorScheme='blue' value='1'>
+              <Radio colorScheme='blue' value='1' onChange={(e) => setValue(e.target.value)}>
                 Male
               </Radio>
-              <Radio colorScheme='pink' value='2'>
+              <Radio colorScheme='pink' value='2' onChange={(e) => setValue(e.target.value)}>
                 Female
               </Radio>
             </Stack>
