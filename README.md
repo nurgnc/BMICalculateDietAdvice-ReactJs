@@ -23,3 +23,13 @@
 - Local Storage
 - Context API
 - Chakra UI
+- 
+<br/>
+
+## Demo
+
+![GIF](src/assets/BMI-Web.gif)
+
+<br/>
+
+![GIF](src/assets/BMI-Responsive.gif)
