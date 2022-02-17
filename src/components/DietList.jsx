@@ -16,7 +16,7 @@ function DietList() {
 
   const handleDiet = async () => {
     if (bmi < 18.5) {
-      setDiet(dietList.underwight)
+      setDiet(dietList.underweight)
     } else if (18.5 <= bmi && bmi < 24.9) {
       setDiet(dietList.health)
     } else if (25 < bmi && bmi < 29.9) {
@@ -29,9 +29,9 @@ function DietList() {
     handleDiet();
   }, [bmi])
 
-  const newBreakfast = diet?.breakfast?.split(",").map((item, index) => `${item}`);
-  const newLunch = diet?.lunch?.split(",").map((item, index) => `${item}`);
-  const newDinner = diet?.dinner?.split(",").map((item, index) => `${item}`);
+  const newBreakfast = diet?.breakfast?.split(",").map((item) => `${item}`);
+  const newLunch = diet?.lunch?.split(",").map((item) => `${item}`);
+  const newDinner = diet?.dinner?.split(",").map((item) => `${item}`);
 
   return (
     <Container mt={8} maxW='container.xl'>
@@ -42,7 +42,7 @@ function DietList() {
             <InfoText align='center' key={index}>&#128313; {item}</InfoText>
           ))}
         </Box>
-        <Box w='100%' p={4} mx={{ lg: 4 }} my={{ base: 8, lg: 0, sm: 8, xs: 8, md: 8 }} display='flex' flexDirection="column" alignItems='center' justifyContent="center" borderWidth='1px' borderRadius='lg' overflow='hidden'>
+        <Box w='100%' p={4} mx={{ lg: 4 }} my={{ lg: 0, sm: 8, md: 8 }} display='flex' flexDirection="column" alignItems='center' justifyContent="center" borderWidth='1px' borderRadius='lg' overflow='hidden'>
           <Heading size='md' mb={5}>&#127829; Lunch &#127829;</Heading>
           {newLunch?.map((item, index) => (
             <InfoText align='center' key={index}>&#128313; {item}</InfoText>
