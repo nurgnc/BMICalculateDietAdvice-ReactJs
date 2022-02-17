@@ -23,7 +23,6 @@
 - Local Storage
 - Context API
 - Chakra UI
-- 
 <br/>
 
 ## Demo
